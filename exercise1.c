@@ -1,36 +1,28 @@
+#define __STDC_WANT_LIB_EXT1__ 1
 #include <stdio.h>
+#include <stdlib.h>
 
-int main () {
-    FILE *fpt;
-    fpt = fopen("Fileone.txt", "a");
-    if (fpt == NULL) {
-        printf("File couldn't be opened\n\a\a");
-        fclose(fpt);
-        exit(0);
-    }
-    while(1) {
-        switch (menu()) {
-            case 1:
-                fputs("The higher the fewer.\n", fpt);
+#define LENGTH 81
+
+int main (void) {
+    char strings[LENGTH];
+    FILE *pfile = NULL;
+    char *filename = "exercise1.txt";
+
+    pfile = fopen(filename, "a");
+
+    setbuf(pfile, NULL);
+    printf("Enter strings of up to 80 characters or press Enter to end:\n");
+    while (1) {
+        fgets(strings, LENGTH, stdin);
+        if (strings[0] == '\n')
             break;
-            case 2:
-            fclose(fpt);
-            fpt = NULL;
-            printf("Exiting the program\n");
-            exit(0);
+        if (EOF == fputs(strings, pfile))
+        {
+            printf("Error writing file.\n");
+            exit(1);
         }
     }
-}
-int menu () {
-    char choice[1];
-    printf("1.Enter string to write into file\n
-    2.quit\n");
-    scanf('%s',choice);
-    if (choice == '1'){
-        return 1
-    }
-    else {
-        return 2
-    }
-
+    fclose(pfile);
+    return 0;
 }
