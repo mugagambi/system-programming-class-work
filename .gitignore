@@ -2,3 +2,7 @@
 *.o
 .vscode/
 *.out
+*.o
+*.txt
+*.bin
+*.t
