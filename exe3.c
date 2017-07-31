@@ -34,7 +34,11 @@ void show_record(PhoneRecord record);        /* Output name and number from a ph
 int main(void)
 {
   FILE *pFile = NULL;                        /* Output file pointer            */
+<<<<<<< HEAD
   char *filename = "records.bin";        /* Name of the file to be written */
+=======
+  char *filename = "C:\\records.bin";        /* Name of the file to be written */
+>>>>>>> 8cb662b60ccd71f8e11fd48a0d6634048c0bc436
   char answer = 'n';
   PhoneRecord record;
   bool file_empty = true;
